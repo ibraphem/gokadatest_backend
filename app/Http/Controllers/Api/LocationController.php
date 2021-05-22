@@ -29,6 +29,11 @@ class LocationController extends Controller
         //
     }
 
+    public function fetchAddressDetails($description) {
+        $result = Location::where('description', '=', $description)->get();
+        return $result;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -38,7 +43,7 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $location = new Location();
-        $location->address = $request->address;
+        $location->description = $request->address;
         $location->latitude = $request->latitude;
         $location->longitude = $request->longitude;
         $location->save();

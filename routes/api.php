@@ -22,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 Route::post('location/store', 'api\LocationController@store');
 
 Route::get('location', 'api\LocationController@index');
+
+Route::get('location/fetch/{description}', 'api\LocationController@fetchAddressDetails');
